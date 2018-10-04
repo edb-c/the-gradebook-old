@@ -6,8 +6,8 @@ class CreateTeachers < ActiveRecord::Migration[5.2]
       t.string :teacher_prefix
       t.string :teacher_firstname
       t.string :teacher_lastname
-      
-      t.string :t.timestamps
+
+      t.timestamps
     end
   end
 end
