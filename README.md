@@ -1,24 +1,25 @@
-# README
+# The Gradebook application
+This application is created to
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# This application allows a user to
+  - Register for an account
+  - Log into their account
+  - Log out of their account
 
-Things you may want to cover:
+# Installation Steps need to run this locally
 
-* Ruby version
+    $ git clone https://github.com/edb-c/the-gradebook
+    $ cd the-gradebook
+    $ bundle install
+    $ rake db:create  
+    $ rake db:migrate
+    $ rake db:seed
 
-* System dependencies
+# Run the server
 
-* Configuration
+    $ rails s
 
-* Database creation
+Visit the IP server address listed.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# License
+[MIT License]
