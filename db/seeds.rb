@@ -20,9 +20,9 @@ student_lastname:   'student_lastname1',
 password:           'password1'
 )
 Course.create(
-course_name:        'Math'
-)
-Assignment.create(
-assignment_name:    'assignment1'
-assignment_grade:   'assignment_grade1'
+course_name:        'Math',
+assignment_name:    'assignment1',
+assignment_grade:   'assignment_grade1',
+teacher_id:          1,
+student_id:          1
 )
