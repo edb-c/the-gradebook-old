@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
 
-  before_action :check_logged_in
+#  before_action :check_logged_in
 
 #teachers GET /teachers(.:format) teachers#index
   def index

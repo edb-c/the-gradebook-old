@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
 
+# Devise Routes -eg. http://localhost:3000/x/sign_in
+  devise_for :students, path: 'students',
+    controllers:
+    { sessions:           "students/sessions",
+      passwords:          "students/passwords",
+      registrations:      "students/registrations",
+      confirmations:      "students/confirmations",
+    #  omniauth_callbacks: "students/omniauth_callbacks"
+    }
+  devise_for :teachers, path: 'teachers',
+  controllers:
+  { sessions:           "teachers/sessions",
+    passwords:          "teachers/passwords",
+    registrations:      "teachers/registrations",
+    confirmations:      "teachers/confirmations",
+  #  omniauth_callbacks: "teachers/omniauth_callbacks"
+  }
+
   resources :assignments
   resources :courses
   resources :students
