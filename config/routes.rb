@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   #  omniauth_callbacks: "teachers/omniauth_callbacks"
   }
 
-  resources :assignments
-  resources :courses
   resources :students
   resources :teachers
+
+  resources :assignments
+  resources :courses
 
   root 'home#index'
 

@@ -5,7 +5,6 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :courses
-  has_many :teachers, through: :courses
-
-
+  has_many :teachers,    through: :courses
+  has_many :assignments, through: :courses
 end
