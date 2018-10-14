@@ -26,12 +26,15 @@ lastname:           'lastname1',
 email:              'student1@email.com',
 password:           'spassword1'
 )
+
 Student.create(
 firstname:          'firstname2',
 lastname:           'lastname2',
 email:              'student2@email.com',
 password:           'spassword2'
-)Student.create(
+)
+
+Student.create(
 firstname:          'firstname3',
 lastname:           'lastname3',
 email:              'student3@email.com',
@@ -39,20 +42,13 @@ password:           'spassword3'
 )
 
 Course.create(
-course_name:        'Math',
-teacher_id:          1, #Math Teacher
-student_id:          1
-)
-
-Course.create(
-course_name:        'Math',
-teacher_id:          1, #Math Teacher
-student_id:          2
+course_name:        'Math'  #course_id = 1
 )
 Course.create(
-course_name:        'Math',
-teacher_id:          1, #Math Teacher
-student_id:          3
+course_name:        'Science' #course_id = 2
+)
+Course.create(
+course_name:        'Technology' #course_id = 3
 )
 
 Assignment.create(
@@ -76,55 +72,26 @@ course_id:           1, #Math
 teacher_id:          1, #Math Teacher
 student_id:          3
 )
-Course.create(
-course_name:        'Science',
-teacher_id:          2, #Science Teacher
-student_id:          1
-)
-Course.create(
-course_name:        'Science',
-teacher_id:          2, #Science Teacher
-student_id:          2
-)
-Course.create(
-course_name:        'Science',
-teacher_id:          2, #Science Teacher
-student_id:          3
-)
+
 Assignment.create(
 assignment_name:    'assignment1',
 assignment_grade:   100,
-course_id:           1, #Math
-teacher_id:          1, #Math Teacher
+course_id:           2, #Science
+teacher_id:          2, #Science Teacher
 student_id:          1
 )
 Assignment.create(
 assignment_name:    'assignment1',
 assignment_grade:   95,
-course_id:           1, #Math
-teacher_id:          1, #Math Teacher
+course_id:           2, #Science
+teacher_id:          2, #Science Teacher
 student_id:          2
 )
 Assignment.create(
 assignment_name:    'assignment1',
 assignment_grade:   90,
-course_id:           1, #Math
-teacher_id:          1, #Math Teacher
-student_id:          3
-)
-Course.create(
-course_name:        'Technology',
-teacher_id:          3, #Science Teacher
-student_id:          1
-)
-Course.create(
-course_name:        'Technology',
-teacher_id:          3, #Science Teacher
-student_id:          2
-)
-Course.create(
-course_name:        'Technology',
-teacher_id:          3, #Science Teacher
+course_id:           2, #Science
+teacher_id:          2, #Science Teachers
 student_id:          3
 )
 Assignment.create(
