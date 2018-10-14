@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 2018_10_05_125707) do
     t.integer "assignment_grade"
     t.integer "course_id"
     t.integer "student_id"
+    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_assignments_on_course_id"
     t.index ["student_id"], name: "index_assignments_on_student_id"
+    t.index ["teacher_id"], name: "index_assignments_on_teacher_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -34,10 +36,8 @@ ActiveRecord::Schema.define(version: 2018_10_05_125707) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "student_username"
-    t.string "student_firstname"
-    t.string "student_lastname"
-    t.string "password_digest"
+    t.string "firstname"
+    t.string "lastname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -50,11 +50,9 @@ ActiveRecord::Schema.define(version: 2018_10_05_125707) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "teacher_username"
-    t.string "teacher_prefix"
-    t.string "teacher_firstname"
-    t.string "teacher_lastname"
-    t.string "password_digest"
+    t.string "prefix"
+    t.string "firstname"
+    t.string "lastname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
