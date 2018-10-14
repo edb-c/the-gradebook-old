@@ -41,16 +41,51 @@ email:              'student3@email.com',
 password:           'spassword3'
 )
 
-Course.create(
-course_name:        'Math'  #course_id = 1
+Course.create!(
+course_name:        'Math',  #course_id = 1
+teacher_id:          1, #Math Teacher
+student_id:          1
 )
-Course.create(
-course_name:        'Science' #course_id = 2
+Course.create!(
+course_name:        'Math',  #course_id = 1
+teacher_id:          1, #Math Teacher
+student_id:          2
 )
-Course.create(
-course_name:        'Technology' #course_id = 3
+Course.create!(
+course_name:        'Math',  #course_id = 1
+teacher_id:          1, #Math Teacher
+student_id:          3
 )
-
+Course.create!(
+course_name:        'Science',  #course_id = 2
+teacher_id:          2, #Science Teacher
+student_id:          1
+)
+Course.create!(
+course_name:        'Science',  #course_id = 2
+teacher_id:          2, #Science Teacher
+student_id:          2
+)
+Course.create!(
+course_name:        'Science',  #course_id = 2
+teacher_id:          2, #Science Teacher
+student_id:          2
+)
+Course.create!(
+course_name:        'Technology', #course_id = 3
+teacher_id:          3, #Technology Teacher
+student_id:          1
+)
+Course.create!(
+course_name:        'Technology', #course_id = 3
+teacher_id:          3, #Technology Teacher
+student_id:          2
+)
+Course.create!(
+course_name:        'Technology', #course_id = 3
+teacher_id:          3, #Technology Teacher
+student_id:          3
+)
 Assignment.create(
 assignment_name:    'assignment1',
 assignment_grade:   100,
