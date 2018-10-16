@@ -8,14 +8,14 @@
         <tbody>
           <tr>
           <td width="150"><h5>Course Name</h5></td>
+          <td width="150"><h5>Course Average</h5></td>
           <td width="300"><h5>Course Actions</h5></td>
           </tr>
           <tr>
-          <% current_student.courses.select(:course_name).where(student_id: current_student.id).each do |course| %>
+          <% current_student.courses.select(:course_name, :id).where(student_id: current_student.id).each do |course| %>
           <td width="150"><h6> <%= link_to "#{course.course_name}", student_path(current_student, course) %></h6></td>
-          <td width="150"><h6> <%= link_to "Edit"%> <%= link_to "   | Delete"%></h6></td>
-
-
+          <td width="150"><h6> <%= "#{Assignment.where(course_id: course.id, student_id: current_student.id).average(:assignment_grade)}" %></h6></td>
+          <td width="150"><h6> <%= link_to "See assignments for this course." %> </h6></td>
          </tr>
           <% end %>
         </tbody>
@@ -24,6 +24,5 @@
      <% else %>
      <h5>You currently do not have any Courses.</h5>
     <% end %>
-     <h6> <%= link_to "Create A New Course" %></h6>
 
 </div>
