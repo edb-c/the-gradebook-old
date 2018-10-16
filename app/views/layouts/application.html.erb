@@ -27,6 +27,7 @@
     <% else %>
         <a class="brown-text" href="/teachers/sign_in">Teacher Login   </a>
         <a class="brown-text" href="/students/sign_in">   |   Student Login</a>
+        <a class="brown-text" <%= link_to "    |   Login with Github", teachers_auth_github_callback_path %></a>
     <% end %>
 </div>
         <ul id="nav-mobile" class="sidenav">

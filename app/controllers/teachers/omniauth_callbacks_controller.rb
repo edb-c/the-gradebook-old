@@ -2,11 +2,11 @@
 
 class Teachers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
-  # devise :omniauthable, omniauth_providers: [:twitter]
+  #devise :omniauthable, omniauth_providers: [:github]
 
   # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+   def github
+   end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
