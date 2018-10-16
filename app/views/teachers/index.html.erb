@@ -1,3 +1,16 @@
 <div class="devise_container">
-<h5>Teacher Root Working index.html.erb</h5>
+<h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
+
+    <% if current_teacher.courses.present? %>
+
+      <h5>Here are your course<%= "s" if current_teacher.courses.count > 1 %>:</h5>
+
+      <% current_teacher.courses.select(:course_name).where(teacher_id: current_teacher.id).distinct.each do |course| %>
+
+      <h6> <%= link_to "#{course.course_name}", teacher_path(current_teacher, course) %></h6>
+      <% end %><br>
+
+     <% else %>
+
+    <% end %>
 </div>
