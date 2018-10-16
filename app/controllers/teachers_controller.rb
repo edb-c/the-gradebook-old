@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
 
-#  before_action :check_logged_in
+# before_action :authenticate_teacher!
 
 #teachers GET /teachers(.:format) teachers#index
   def index
@@ -39,9 +39,6 @@ class TeachersController < ApplicationController
   end
 
   def destroy
-    @teacher.delete
-      flash[:alert] = "Goodbye #{@teachers.teacher_prefix @teachers.teacher_lastname}!"
-      redirect_to :root
   end
 
   private

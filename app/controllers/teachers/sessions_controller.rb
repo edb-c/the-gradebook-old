@@ -3,6 +3,7 @@
 class Teachers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -14,9 +15,12 @@ class Teachers::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  #def destroy
+  #  signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(teachers))
+  #  set_flash_message! :notice, :signed_out if signed_out
+  #  yield if block_given?
+  #  respond_to_on_destroy
+  #end
 
   # protected
 

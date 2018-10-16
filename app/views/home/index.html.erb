@@ -7,7 +7,15 @@
           <h5 class="header col s12 light">An Easy to Use Application for Teachers and Students to review Classes & Grades.</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        <% if teacher_signed_in? %>
+            <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Teacher!</a>
+        <% elsif student_signed_in? %>
+           <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Student!</a>
+        <% else %>
+            <a href="/teachers/sign_in" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Teacher Login</a>
+            <a href="/students/sign_in" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Student Login</a>
+        <% end %>
+
         </div>
         <br><br>
 

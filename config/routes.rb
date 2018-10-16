@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
 # Devise Routes -eg. http://localhost:3000/x/sign_in
   devise_for :students, path: 'students',
     controllers:
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
       confirmations:      "students/confirmations",
     #  omniauth_callbacks: "students/omniauth_callbacks"
     }
+
   devise_for :teachers, path: 'teachers',
   controllers:
   { sessions:           "teachers/sessions",
@@ -17,14 +20,12 @@ Rails.application.routes.draw do
     confirmations:      "teachers/confirmations",
   #  omniauth_callbacks: "teachers/omniauth_callbacks"
   }
-
   resources :students
   resources :teachers
 
   resources :assignments
   resources :courses
 
-  root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
