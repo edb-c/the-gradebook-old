@@ -4,4 +4,5 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @assignments = @course.assignments
   end
+  
 end
