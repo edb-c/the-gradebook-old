@@ -26,11 +26,11 @@ Rails.application.routes.draw do
   devise_scope :teachers do
     get "teachers/auth/github/callback" => "teachers/omniauth_callbacks#github"
   end
-  resources :students
-  resources :teachers
 
-  resources :assignments
-  resources :courses
+  resources :students, resources :teachers only: [:show] do
+  resources :courses do
+    resources :assignments
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -8,9 +8,9 @@
         </div>
         <div class="row center">
         <% if teacher_signed_in? %>
-            <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Teacher!</a>
+            <a href="/teachers" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Teacher!</a>
         <% elsif student_signed_in? %>
-           <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Student!</a>
+           <a href="/students" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Student!</a>
         <% else %>
             <a href="/teachers/sign_in" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Teacher Login</a>
             <a href="/students/sign_in" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Student Login</a>
