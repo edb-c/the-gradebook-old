@@ -27,9 +27,10 @@ Rails.application.routes.draw do
     get "teachers/auth/github/callback" => "teachers/omniauth_callbacks#github"
   end
 
-  resources :students, resources :teachers only: [:show] do
-  resources :courses do
-    resources :assignments
+  resources :students, :teachers
+
+  resources :courses, only: [:show] do
+    resources :assignments except: [:index], controller: 'courses/assignments'
   end
 
 
