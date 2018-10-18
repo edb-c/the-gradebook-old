@@ -6,9 +6,11 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #       :omniauthable, :omniauth_providers => [:github]
 
-         has_many :courses
-         has_many :students,    through: :courses
-         has_many :assignments, through: :courses
+    has_many :courses
+    has_many :students,    through: :courses
+    has_many :assignments, through: :courses
+
+    accepts_nested_attributes_for :students, :courses, :assignments
 
   def self.from_omniauth(auth)
       # Either create a User record or update it based on the provider (Google) and the UID

@@ -9,7 +9,7 @@ class Student < ApplicationRecord
   has_many :teachers,    through: :courses
   has_many :assignments, through: :courses
 
-  accepts_nested_attributes_for :courses, :assignments
+  accepts_nested_attributes_for :teachers, :courses, :assignments
 
   def self.from_omniauth(auth)
       # Either create a User record or update it based on the provider (Google) and the UID

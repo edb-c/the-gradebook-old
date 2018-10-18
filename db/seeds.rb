@@ -41,57 +41,20 @@ email:              'student3@email.com',
 password:           'spassword3'
 )
 
-
 Course.create!(
-course_name:        'Math',  #course_id = 1
-teacher_id:          1, #Math Teacher
-student_id:          1
+course_name:        'Math' #course.id = 1
+)
+Course.create(
+course_name:        'Science' #course.id = 1
+)
+Course.create(
+course_name:        'Science'  #course.id = 3
 )
 
-Course.create(
-course_name:        'Math',  #course_id = 2
-teacher_id:          1, #Math Teacher
-student_id:          2
-)
-Course.create(
-course_name:        'Math',  #course_id = 3
-teacher_id:          1, #Math Teacher
-student_id:          3
-)
-Course.create(
-course_name:        'Science',  #course_id = 4
-teacher_id:          2, #Science Teacher
-student_id:          1
-)
-Course.create(
-course_name:        'Science',  #course_id = 5
-teacher_id:          2, #Science Teacher
-student_id:          2
-)
-Course.create(
-course_name:        'Science',  #course_id = 6
-teacher_id:          2, #Science Teacher
-student_id:          3
-)
-Course.create(
-course_name:        'Technology', #course_id = 7
-teacher_id:          3, #Technology Teacher
-student_id:          1
-)
-Course.create(
-course_name:        'Technology', #course_id = 8
-teacher_id:          3, #Technology Teacher
-student_id:          2
-)
-Course.create(
-course_name:        'Technology', #course_id = 9
-teacher_id:          3, #Technology Teacher
-student_id:          3
-)
 Assignment.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   100,
-course_id:           1, #Math - References Courses.course_id
+course_id:           1, #Math
 teacher_id:          1, #Math Teacher
 student_id:          1
 )
@@ -99,65 +62,58 @@ student_id:          1
 Assignment.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   95,
-course_id:           2, #Math - References Courses.course_id
+course_id:           1, #Math
 teacher_id:          1, #Math Teacher
 student_id:          2
 )
 Assignment.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   90,
-course_id:           3, #Math - References Courses.course_id
+course_id:           1, #Math
 teacher_id:          1, #Math Teacher
 student_id:          3
 )
 
 Assignment.create(
-assignment_name:    'Math Assignment1',
-assignment_grade:   100,
-course_id:           4, #Science - References Courses.course_id
+assignment_name:    'Science Assignment1',
+assignment_grade:    90,
+course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          1
 )
 Assignment.create(
 assignment_name:    'Science Assignment1',
-assignment_grade:   95,
-course_id:           5, #Science - References Courses.course_id
+assignment_grade:   100,
+course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          2
 )
 Assignment.create(
 assignment_name:    'Science Assignment1',
-assignment_grade:   90,
-course_id:           6, #Science - References Courses.course_id
+assignment_grade:   95,
+course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          3
 )
+
 Assignment.create(
-assignment_name:    'Science Assignment1',
+assignment_name:    'Technology Assignment1',
 assignment_grade:   100,
-course_id:           7, #Science - References Courses.course_id
+course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          1
 )
 Assignment.create(
 assignment_name:    'Technology Assignment1',
 assignment_grade:   85,
-course_id:           8, #Technology - References Courses.course_id
+course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          2
 )
 Assignment.create(
-assignment_name:    'Technology Assignment1',
-assignment_grade:   80,
-course_id:           9, #Technology - References Courses.course_id
+assignment_name:    'Technology Assignment2',
+assignment_grade:    80,
+course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          3
-)
-
-Assignment.create(
-assignment_name:    'Technology Assignment2',
-assignment_grade:    70,
-course_id:           10, #Technology - References Courses.course_id
-teacher_id:          3, #Technology Teacher
-student_id:          1
 )
