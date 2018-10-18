@@ -1,4 +1,4 @@
-=begin
+
 Teacher.create(
 prefix:             'teacher_prefix1',
 firstname:          'teacher_firstname1',
@@ -89,75 +89,75 @@ teacher_id:          3, #Technology Teacher
 student_id:          3
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Math Assignment1',
 assignment_grade:   100,
-course_id:           1, #Math
+course_id:           1, #Math - References Courses.course_id
 teacher_id:          1, #Math Teacher
 student_id:          1
 )
 
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Math Assignment1',
 assignment_grade:   95,
-course_id:           2, #Math
+course_id:           2, #Math - References Courses.course_id
 teacher_id:          1, #Math Teacher
 student_id:          2
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Math Assignment1',
 assignment_grade:   90,
-course_id:           3, #Math
+course_id:           3, #Math - References Courses.course_id
 teacher_id:          1, #Math Teacher
 student_id:          3
 )
 
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Math Assignment1',
 assignment_grade:   100,
-course_id:           4, #Science
+course_id:           4, #Science - References Courses.course_id
 teacher_id:          2, #Science Teacher
 student_id:          1
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Science Assignment1',
 assignment_grade:   95,
-course_id:           5, #Science
+course_id:           5, #Science - References Courses.course_id
 teacher_id:          2, #Science Teacher
 student_id:          2
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Science Assignment1',
 assignment_grade:   90,
-course_id:           6, #Science
+course_id:           6, #Science - References Courses.course_id
 teacher_id:          2, #Science Teacher
 student_id:          3
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Science Assignment1',
 assignment_grade:   100,
-course_id:           7, #Technology
+course_id:           7, #Science - References Courses.course_id
 teacher_id:          3, #Technology Teacher
 student_id:          1
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Technology Assignment1',
 assignment_grade:   85,
-course_id:           8, #Technology
+course_id:           8, #Technology - References Courses.course_id
 teacher_id:          3, #Technology Teacher
 student_id:          2
 )
 Assignment.create(
-assignment_name:    'assignment1',
+assignment_name:    'Technology Assignment1',
 assignment_grade:   80,
-course_id:           9, #Technology
+course_id:           9, #Technology - References Courses.course_id
 teacher_id:          3, #Technology Teacher
 student_id:          3
 )
-=end
+
 Assignment.create(
-assignment_name:    'assignment1',
-assignment_grade:   70,
-course_id:           10, #Technology
+assignment_name:    'Technology Assignment2',
+assignment_grade:    70,
+course_id:           10, #Technology - References Courses.course_id
 teacher_id:          3, #Technology Teacher
 student_id:          1
 )
