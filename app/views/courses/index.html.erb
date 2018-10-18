@@ -17,9 +17,10 @@
           <tr>
           <td width="150"><h6> <%= "#{current_student.id}"%></h6></td>
           <td width="150"><h6> <%= "#{course.id}"%></h6></td>
-          <td width="150"><h6> <%= link_to "#{course.course_name}", course_path(current_student, course) %></h6></td>
+          <td width="150"><h6> <%= "#{course.course_name}" %> </h6></td>
           <td width="150"><h6> <%= "#{Assignment.where(course_id: course.id, student_id: current_student.id).average(:assignment_grade)}" %></h6></td>
-          <td width="150"><h6> <%= link_to "See assignments for this course." %> </h6></td>
+          <td width="150"><h6> <%= link_to "See assignments for this course.", course_assignments_path(course) %></h6></td>
+
           </tr>
           <% end %>
         </tbody>
