@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_004409) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
+<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +39,10 @@ ActiveRecord::Schema.define(version: 2018_11_16_004409) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_student_courses_on_course_id"
     t.index ["student_id"], name: "index_student_courses_on_student_id"
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> a12a3e8b62b16b63a54798477a83f1ba90878d4c
   end
 
   create_table "students", force: :cascade do |t|
