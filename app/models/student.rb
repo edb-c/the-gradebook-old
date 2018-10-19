@@ -6,10 +6,10 @@ class Student < ApplicationRecord
   #       :omniauthable, :omniauth_providers => [:github]
 
   has_many :courses
-  has_many :teachers,    through: :courses
+  has_many :teachers,    through: :student_courses
   has_many :assignments, through: :courses
 
-  accepts_nested_attributes_for :courses, :assignments
+  accepts_nested_attributes_for :teachers, :courses, :assignments
 
   def self.from_omniauth(auth)
       # Either create a User record or update it based on the provider (Google) and the UID

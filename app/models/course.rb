@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  belongs_to   :teachers, optional: true
-  belongs_to   :students, optional: true
-  has_many     :assignments
+  has_many  :assignments
+  has_many  :students, through: :student_courses
+  has_many  :teachers, through: :teacher_courses 
 end

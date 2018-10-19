@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_004409) do
+ActiveRecord::Schema.define(version: 2018_11_16_004409) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "assignment_name"
@@ -27,12 +27,17 @@ ActiveRecord::Schema.define(version: 2018_10_16_004409) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
-    t.integer "student_id"
-    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_courses_on_student_id"
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
+
+  create_table "student_courses", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_student_courses_on_course_id"
+    t.index ["student_id"], name: "index_student_courses_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -52,6 +57,15 @@ ActiveRecord::Schema.define(version: 2018_10_16_004409) do
     t.boolean "expires"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+  end
+
+  create_table "teacher_courses", force: :cascade do |t|
+    t.integer "teacher_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_teacher_courses_on_course_id"
+    t.index ["teacher_id"], name: "index_teacher_courses_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|

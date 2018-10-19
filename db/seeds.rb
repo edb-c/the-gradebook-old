@@ -88,6 +88,12 @@ course_name:        'Technology', #course_id = 9
 teacher_id:          3, #Technology Teacher
 student_id:          3
 )
+Course.create(
+course_name:        'Technology', #course_id = 10
+teacher_id:          3, #Technology Teacher
+student_id:          1
+)
+
 Assignment.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   100,
