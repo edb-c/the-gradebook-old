@@ -6,9 +6,12 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #       :omniauthable, :omniauth_providers => [:github]
 
-    has_many :courses
-    has_many :students,    through: :courses
-    has_many :assignments, through: :courses
+    has_many :teacher_courses
+    has_many :courses,     through: :teacher_courses
+
+    has_many :assignments
+    has_many :students, through: :assignments
+
 
     accepts_nested_attributes_for :students, :courses, :assignments
 

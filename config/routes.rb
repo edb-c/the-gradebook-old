@@ -28,9 +28,9 @@ Rails.application.routes.draw do
   devise_scope :teachers do
     get "teachers/auth/github/callback" => "teachers/omniauth_callbacks#github"
   end
-  resources :teachers
-  resources :students
-  resources :courses
+
+  resources :teacher_courses
+  resources :student_courses
 
   resources :courses do
   resources :assignments, controller: 'courses/assignments'

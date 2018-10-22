@@ -5,7 +5,7 @@ class Teachers::SessionsController < Devise::SessionsController
   before_action :authenticate_teacher!
 
   def after_sign_in_path_for(teachers)
-    teachers_path
+    teacher_courses_path
   end
 
   # GET /resource/sign_in

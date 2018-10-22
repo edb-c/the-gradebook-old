@@ -1,0 +1,32 @@
+<div class="devise_container">
+<h4>Welcome <%= current_student.firstname.capitalize if current_student.firstname %>!</h4>
+
+    <% if current_student.student_courses.present? %>
+
+      <h5>Here are your courses:</h5>
+      <table>
+        <tbody>
+          <tr>
+          <td width="150"><h5>Student ID</h5></td>
+          <td width="150"><h5>Course ID</h5></td>
+          <td width="150"><h5>Course Name</h5></td>
+          <td width="150"><h5>Course Average</h5></td>
+          <td width="300"><h5>Course Actions</h5></td>
+          </tr>
+          <% current_student.student_courses.each do |student_course| %>
+          <tr>
+          <td width="150"><h6> <%= "#{current_student.id}"%></h6></td>
+          <td width="150"><h6> <%= "#{student_course.course_id}"%></h6></td>
+          <td width="150"><h6> <%= "#{Course.where(id: student_course.course_id).to_a}"%></h6></td>
+          <td width="150"><h6> <%= "#{Assignment.where(course_id: student_course.course_id, student_id: current_student.id).average(:assignment_grade)}" %></h6></td>
+          <td width="150"><h6> <%= link_to "See assignments for this course.", course_assignments_path(student_course.course_id) %></h6></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
+
+     <% else %>
+     <h5>You currently do not have any Courses.</h5>
+    <% end %>
+
+</div>

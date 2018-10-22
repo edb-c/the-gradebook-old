@@ -1,20 +1,21 @@
 <div class="devise_container">
 <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
-    <% if current_teacher.courses.present? %>
+    <% if current_teacher.teacher_courses.present? %>
 
       <h5>Here are your courses:</h5>
       <table>
         <tbody>
           <tr>
+          <td width="150"><h5>Course ID</h5></td>
           <td width="150"><h5>Course Name</h5></td>
           <td width="300"><h5>Course Actions</h5></td>
           </tr>
           <tr>
-          <% current_teacher.courses.select(:course_name).where(teacher_id: current_teacher.id).each do |course| %>
-          <td width="150"><h6> <%= link_to "#{course.course_name}", teacher_path(current_teacher, course) %></h6></td>
+          <% current_teacher.teacher_courses.each do |teacher_course| %>
+          <td width="150"><h6> <%= link_to "#{teacher_course.course_id}", teacher_courses_path(current_teacher, teacher_course) %></h6></td>
+          <td width="150"><h6> <%= "teacher_course."%></h6></td>
           <td width="150"><h6> <%= link_to "Edit"%> <%= link_to "   | Delete"%></h6></td>
-
 
          </tr>
           <% end %>
