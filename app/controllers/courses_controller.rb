@@ -5,11 +5,11 @@ class CoursesController < ApplicationController
 
   def new
     @course_ = Course.new
-  end   
+  end
 
   def show
     @course = Course.find(params[:id])
-    @assignments = @course.assignments
+    @course_details = @course_details.assignments
   end
 
 end

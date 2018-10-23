@@ -1,4 +1,3 @@
-=begin
 Teacher.create!(
 prefix:             'teacher_prefix1',
 firstname:          'teacher_firstname1',
@@ -41,9 +40,6 @@ lastname:           'lastname3',
 email:              'student3@email.com',
 password:           'spassword3'
 )
-=end
-
-=begin
 
 Course.create!(
 course_name:        'Math',  #course_id = 1
@@ -97,12 +93,12 @@ StudentCourse.create!(
 student_id:          3,
 course_id:           3
 )
-=end
+
 StudentCourse.create!(
 student_id:          1,
 course_id:           4
 )
-=begin
+
 TeacherCourse.create!(
 teacher_id:          1,
 course_id:           1
@@ -121,7 +117,7 @@ TeacherCourse.create!(
 teacher_id:          3,
 course_id:           3
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   100,
 course_id:           1, #Math
@@ -129,14 +125,14 @@ teacher_id:          1, #Math Teacher
 student_id:          1
 )
 
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   95,
 course_id:           1, #Math
 teacher_id:          1, #Math Teacher
 student_id:          2
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   90,
 course_id:           1, #Math
@@ -144,28 +140,28 @@ teacher_id:          1, #Math Teacher
 student_id:          3
 )
 
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Science Assignment1',
 assignment_grade:    90,
 course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          1
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Science Assignment1',
 assignment_grade:   90,
 course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          2
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Science Assignment1',
 assignment_grade:   95,
 course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          3
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Technology Assignment1',
 assignment_grade:    100,
 course_id:           3, #Technology - References Courses.course_id
@@ -173,28 +169,28 @@ teacher_id:          3, #Technology Teacher
 student_id:          1
 )
 
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Technology Assignment1',
 assignment_grade:   85,
 course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          2
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Technology Assignment1',
 assignment_grade:   80,
 course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          3
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Science Assignment2',
 assignment_grade:   78,
 course_id:           2, #Science
 teacher_id:          2, #Science Teacher
 student_id:          2
 )
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Technology Assignment2',
 assignment_grade:   90,
 course_id:           3, #Technology
@@ -202,7 +198,7 @@ teacher_id:          3, #Technology Teacher
 student_id:          3
 )
 
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Technology Assignment2',
 assignment_grade:   90,
 course_id:           3, #Technology
@@ -210,11 +206,10 @@ teacher_id:          3, #Technology Teacher
 student_id:          1
 )
 
-Assignment.create(
+CourseDetail.create(
 assignment_name:    'Social Studies Assignment1',
 assignment_grade:   97,
 course_id:           4, #Social Studies
 teacher_id:          1, #Social Studies Teacher
 student_id:          2
 )
-=end

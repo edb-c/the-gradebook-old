@@ -18,8 +18,8 @@
           <td width="150"><h6> <%= "#{current_student.id}"%></h6></td>
           <td width="150"><h6> <%= "#{student_course.course_id}"%></h6></td>
           <td width="150"><h6> <%= "#{Course.find(student_course.course_id).course_name}"%></h6></td>
-          <td width="150"><h6> <%= "#{Assignment.where(course_id: student_course.course_id, student_id: current_student.id).average(:assignment_grade)}" %></h6></td>
-          <td width="150"><h6> <%= link_to "See assignments for this course.", course_assignments_path(student_course.course_id) %></h6></td>
+          <td width="150"><h6> <%= "#{CourseDetail.where(course_id: student_course.course_id, student_id: current_student.id).average(:assignment_grade)}" %></h6></td>
+          <td width="150"><h6> <%= link_to "See course details for this course.", course_course_details_path(student_course.course_id) %></h6></td>
           </tr>
           <% end %>
         </tbody>

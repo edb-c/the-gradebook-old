@@ -16,11 +16,9 @@
           <tr>
           <td width="150"><h6> <%= "#{teacher_course.course_id}"%></h6></td>
           <td width="150"><h6> <%= "#{Course.find(teacher_course.course_id).course_name}"%></h6></td>
-          <td width="150"><h6> <%= "#{Assignment.select(:student_id).where(course_id: teacher_course.course_id).count}"%></h6></td>
+          <td width="150"><h6> <%= "#{CourseDetail.select(:student_id).where(course_id: teacher_course.course_id).count}"%></h6></td>
           <td width="150"><h6> <%= link_to "View Students", teacher_course_path(teacher_course.course_id) %> |
-            <%= link_to "View Assignments", teacher_course_path(teacher_course.course_id) %> |
-            <%= link_to "Edit Course", edit_teacher_course_path(teacher_course.course_id) %> |
-            <%= link_to "Delete Course", teacher_course_path(teacher_course.course_id) %>
+            <%= link_to "View Course", course_course_details_path(teacher_course.course_id) %> 
           </h6></td>
           </tr>
           <% end %>

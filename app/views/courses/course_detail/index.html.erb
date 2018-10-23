@@ -1,0 +1,59 @@
+<div class="devise_container">
+
+<!-- STUDENT ASSIGNMENT LOGIC -->
+  <% if current_student %>
+    <h4>Welcome <%= current_student.firstname.capitalize if current_student.firstname %>!</h4>
+    <% if current_student.course_details.present? %>
+      <h5 class="green-text">Here are the course details and grades for your <%="#{Course.find(params[:course_id]).course_name}"%> course:</h5>
+      <table>
+        <tbody>
+          <tr>
+          <td width="150"><h5>Assignment Name</h5></td>
+          <td width="150"><h5>Assignment Grade</h5></td>
+          </tr>
+          <tr>
+          <% current_student.course_details.where(course_id: "#{params[:course_id]}").each  do |course_detail| %>
+          <td width="150"><h6> <%= "#{course_detail.assignment_name}" %></h6></td>
+          <td width="150"><h6> <%= "#{course_detail.assignment_grade}" %></h6></td>
+         </tr>
+
+          <% end %>
+        </tbody>
+        </table>
+     <% else %>
+     <h5>You currently do not have any Course Details.</h5>
+    <% end %>
+
+<!-- TEACHER ASSIGNMENT LOGIC -->
+  <% else %>
+
+  <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
+
+  <% if current_teacher.course_details.present? %>
+    <h5 class="green-text">Here are the details for your <%= "#{Course.find(params[:course_id]).course_name}"%> course:</h5>
+    <table>
+      <tbody>
+        <tr>
+        <td width="150"><h5>Assignment Name</h5></td>
+        <td width="150"><h5>Teacher Action</h5></td>
+        </tr>
+        <tr>
+        <% current_teacher.course_details.select(:assignment_name).distinct.where(course_id: "#{params[:course_id]}").each  do |course_detail| %>
+        <td width="150"><h6> <%= "#{course_detail.assignment_name}" %></h6></td>
+        <td width="150"><h6>
+          <%= link_to "View Assignment Grades", teacher_course_path("#{params[:course_id]}") %> |
+          <%= link_to "Edit", edit_teacher_course_path("#{params[:course_id]}") %> |
+          <%= link_to "Delete", teacher_course_path("#{params[:course_id]}") %>
+        </h6></td>
+       </tr>
+         <% end %>
+      </tbody>
+      </table>
+   <% else %>
+   <h5>Student currently does not have any Course Detais.</h5>
+  <% end %>
+
+
+<% end %>
+
+</div>

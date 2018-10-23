@@ -13,15 +13,13 @@
           <td width="250"><h5>Teacher Actions</h5></td>
           </tr>
           <tr>
-          <% current_teacher.assignments.where(course_id: "#{params[:id]}").each  do |assignment| %>
+          <% current_teacher.course_details.where(course_id: "#{params[:id]}").each  do |course_detail| %>
           <tr>
-          <td width="150"><h6> <%= "#{assignment.student_id}" %></h6></td>
-          <td width="150"><h6> <%= "#{Student.find(assignment.student_id).lastname.capitalize}"%>,
-            <%= "#{Student.find(assignment.student_id).firstname.capitalize}"%> </h6></td>
-          <td width="150"><h6><%= "#{Assignment.where(course_id: params[:id], student_id: assignment.student_id).average(:assignment_grade)}" %></h6></td>
-          <td width="150"><h6> <%= link_to "View Student Assignments", course_assignments_path(assignment.student_id) %> |
-            <%= link_to "Edit Student", edit_student_course_path(assignment.student_id) %> |
-            <%= link_to "Delete Student", student_course_path(assignment.student_id) %>
+          <td width="150"><h6> <%= "#{course_detail.student_id}" %></h6></td>
+          <td width="150"><h6> <%= "#{Student.find(course_detail.student_id).lastname.capitalize}"%>,
+            <%= "#{Student.find(course_detail.student_id).firstname.capitalize}"%> </h6></td>
+          <td width="150"><h6><%= "#{CourseDetail.where(course_id: params[:id], student_id: course_detail.student_id).average(:assignment_grade)}" %></h6></td>
+          <td width="150"><h6> <%= link_to "View Student Details", student_path(course_detail.student_id) %>
           </h6></td>
           </tr>
           <% end %>

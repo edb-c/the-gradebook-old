@@ -1,4 +1,4 @@
-class Assignment < ApplicationRecord
+class CourseDetail < ApplicationRecord
   belongs_to :student, optional: :true
   belongs_to :course, optional: :true
   belongs_to :teacher, optional: :true
