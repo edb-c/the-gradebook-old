@@ -3,7 +3,7 @@
 
     <% if current_student.student_courses.present? %>
 
-      <h5>Here are your courses:</h5>
+      <h5 class="green-text">Here are your courses and the  average for each:</h5>
       <table>
         <tbody>
           <tr>
@@ -17,7 +17,7 @@
           <tr>
           <td width="150"><h6> <%= "#{current_student.id}"%></h6></td>
           <td width="150"><h6> <%= "#{student_course.course_id}"%></h6></td>
-          <td width="150"><h6> <%= "#{Course.where(id: student_course.course_id).to_a}"%></h6></td>
+          <td width="150"><h6> <%= "#{Course.find(student_course.course_id).course_name}"%></h6></td>
           <td width="150"><h6> <%= "#{Assignment.where(course_id: student_course.course_id, student_id: current_student.id).average(:assignment_grade)}" %></h6></td>
           <td width="150"><h6> <%= link_to "See assignments for this course.", course_assignments_path(student_course.course_id) %></h6></td>
           </tr>

@@ -3,7 +3,7 @@
 
     <% if current_student.assignments.present? %>
 
-      <h5>Here are your assignments for Course ID: <%= "   #{params[:course_id]}" %></h5>
+      <h5 class="green-text">Here are the assignments and grades for your <%="#{Course.find(params[:course_id]).course_name}"%> course:</h5>
       <table>
         <tbody>
           <tr>

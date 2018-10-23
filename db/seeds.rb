@@ -1,4 +1,4 @@
-
+=begin
 Teacher.create!(
 prefix:             'teacher_prefix1',
 firstname:          'teacher_firstname1',
@@ -179,4 +179,12 @@ assignment_grade:   90,
 course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          3
+)
+=end
+Assignment.create(
+assignment_name:    'Technology Assignment2',
+assignment_grade:   90,
+course_id:           3, #Technology
+teacher_id:          3, #Technology Teacher
+student_id:          1
 )
