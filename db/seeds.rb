@@ -20,6 +20,7 @@ lastname:           'teacher_lastname3',
 email:              'teacher3@email.com',
 password:           'password3'
 )
+
 Student.create!(
 firstname:          'firstname1',
 lastname:           'lastname1',
@@ -40,6 +41,9 @@ lastname:           'lastname3',
 email:              'student3@email.com',
 password:           'spassword3'
 )
+=end
+
+=begin
 
 Course.create!(
 course_name:        'Math',  #course_id = 1
@@ -52,6 +56,10 @@ Course.create!(
 course_name:        'Tecnology',  #course_id = 3
 )
 
+Course.create!(
+course_name:        'Social Studies',  #course_id = 4
+)
+
 StudentCourse.create!(
 student_id:          1,
 course_id:           1
@@ -84,14 +92,27 @@ StudentCourse.create!(
 student_id:          3,
 course_id:           2
 )
+
 StudentCourse.create!(
 student_id:          3,
 course_id:           3
 )
+=end
+StudentCourse.create!(
+student_id:          1,
+course_id:           4
+)
+=begin
 TeacherCourse.create!(
 teacher_id:          1,
 course_id:           1
 )
+
+TeacherCourse.create!(
+teacher_id:          1,
+course_id:           4
+)
+
 TeacherCourse.create!(
 teacher_id:          2,
 course_id:           2
@@ -180,7 +201,7 @@ course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          3
 )
-=end
+
 Assignment.create(
 assignment_name:    'Technology Assignment2',
 assignment_grade:   90,
@@ -188,3 +209,12 @@ course_id:           3, #Technology
 teacher_id:          3, #Technology Teacher
 student_id:          1
 )
+
+Assignment.create(
+assignment_name:    'Social Studies Assignment1',
+assignment_grade:   97,
+course_id:           4, #Social Studies
+teacher_id:          1, #Social Studies Teacher
+student_id:          2
+)
+=end
