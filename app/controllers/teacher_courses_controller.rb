@@ -4,7 +4,8 @@ class TeacherCoursesController < ApplicationController
     teacher_courses_path
   end
 
-
-
+  def show
+    @teachercourse = TeacherCourse.find(params[:id])
+  end
 
 end

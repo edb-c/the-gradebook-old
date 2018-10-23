@@ -1,0 +1,33 @@
+<div class="devise_container">
+<h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
+
+    <% if current_teacher.teacher_courses.present? %>
+
+      <h5 class="green-text">Here are your courses and the number of students enrolled for each:</h5>
+      <table>
+        <tbody>
+          <tr>
+          <td width="150"><h5>Course ID</h5></td>
+          <td width="150"><h5>Course Name</h5></td>
+          <td width="250"><h5>Number of Students Enrolled</h5></td>
+          <td width="300"><h5>Course Actions</h5></td>
+          </tr>
+          <% current_teacher.teacher_courses.each do |teacher_course| %>
+          <tr>
+          <td width="150"><h6> <%= "#{current_teacher.id}"%></h6></td>
+          <td width="150"><h6> <%= "#{Course.find(teacher_course.course_id).course_name}"%></h6></td>
+          <td width="150"><h6> <%= "#{Assignment.select(:student_id).where(course_id: teacher_course.course_id).count}" %></h6></td>
+          <td width="150"><h6> <%= link_to "View", teacher_course_path(teacher_course.course_id) %> |
+            <%= link_to "Edit", edit_teacher_course_path(teacher_course.course_id) %> |
+            <%= link_to "Delete", teacher_course_path(teacher_course.course_id) %>
+          </h6></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
+
+     <% else %>
+     <h5>You currently do not have any Courses.</h5>
+    <% end %>
+
+</div>
