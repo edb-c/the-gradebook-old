@@ -17,8 +17,8 @@
           <tr>
           <td width="150"><h6> <%= "#{assignment.student_id}" %></h6></td>
           <td width="150"><h6> Get Student Name </h6></td>
-            <td width="150"><h6> Get Student Average </h6></td>
-          <td width="150"><h6> <%= link_to "View Assignments", student_course_path(assignment.student_id) %> |
+            <td width="150"><h6><%= "#{Assignment.where(course_id: params[:id], student_id: assignment.student_id).average(:assignment_grade)}" %></h6></td>
+          <td width="150"><h6> <%= link_to "View Assignments", course_assignments_path(assignment.student_id) %> |
             <%= link_to "Edit Student", edit_student_course_path(assignment.student_id) %> |
             <%= link_to "Delete Student", student_course_path(assignment.student_id) %>
           </h6></td>
