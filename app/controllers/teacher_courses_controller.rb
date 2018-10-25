@@ -8,38 +8,21 @@ class TeacherCoursesController < ApplicationController
     @teachercourse = TeacherCourse.find(params[:id])
   end
 
-end
-=begin
-class SchoolClassesController < ApplicationController
-
-  def index
-    @school_classes = SchoolClass.all
-  end
-
-  def show
-    @school_class = SchoolClass.find_by(id: params[:id])
-  end
-
-  def new
-    @school_class = SchoolClass.new
-  end
-
-  def create
-    @school_class = SchoolClass.new(params.require(:school_class))
-    @school_class.save
-    redirect_to school_class_path(@school_class)
-  end
-
   def edit
-    @school_class = SchoolClass.find_by(id: params[:id])
   end
 
   def update
-    @school_class = SchoolClass.find_by(id: params[:id])
-    @school_class.update(params.require(:school_class))
-    redirect_to school_class_path(@school_class)
+      if @zoo.update(zoo_params)
+          flash[:notice] = "Successfully updated #{@zoo.name}."
+          redirect_to user_zoo_path(current_user, @zoo)
+      elsif Zoo.where(name: @zoo.name).exists?
+          flash[:error] = "That Zoo already exists!"
+          redirect_to edit_user_zoo_path(current_user, @zoo)
+      else
+          flash[:error] = "Hm.. Something went wrong"
+          redirect_to edit_user_zoo_path(current_user, @zoo)
+      end
   end
 
 
 end
-=end

@@ -3,7 +3,7 @@
 
     <% if current_teacher.teacher_courses.present? %>
 
-      <h5 class="green-text">Viewing informaton for your <%="#{Course.find(params[:id]).course_name}"%> class:</h5>
+      <h5 class="green-text">Viewing student roster informaton for your <%="#{Course.find(params[:id]).course_name}"%> class:</h5>
       <table>
         <tbody>
           <tr>
@@ -13,7 +13,7 @@
           <td width="250"><h5>Teacher Actions</h5></td>
           </tr>
           <tr>
-          <% current_teacher.course_details.where(course_id: "#{params[:id]}").each  do |course_detail| %>
+          <% current_teacher.course_details.select(:student_id).distinct.where(course_id: "#{params[:id]}").each  do |course_detail| %>
           <tr>
           <td width="150"><h6> <%= "#{course_detail.student_id}" %></h6></td>
           <td width="150"><h6> <%= "#{Student.find(course_detail.student_id).lastname.capitalize}"%>,

@@ -211,5 +211,5 @@ assignment_name:    'Social Studies Assignment1',
 assignment_grade:   97,
 course_id:           4, #Social Studies
 teacher_id:          1, #Social Studies Teacher
-student_id:          2
+student_id:          1
 )

@@ -30,19 +30,23 @@
   <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
   <% if current_teacher.course_details.present? %>
-    <h5 class="green-text">Here are the details for your <%= "#{Course.find(params[:course_id]).course_name}"%> course:</h5>
+    <h5 class="green-text">Viewing the assignment details for your <%= "#{Course.find(params[:course_id]).course_name}"%> course:</h5>
     <table>
       <tbody>
         <tr>
         <td width="150"><h5>Assignment Name</h5></td>
-        <td width="150"><h5>Teacher Action</h5></td>
+        <td width="150"><h5>Student Name</h5></td>
+        <td width="150"><h5>Student Grade</h5></td>
+        <td width="150"><h5>Teacher Action for Assignments</h5></td>
         </tr>
         <tr>
-        <% current_teacher.course_details.select(:assignment_name).distinct.where(course_id: "#{params[:course_id]}").each  do |course_detail| %>
+        <% current_teacher.course_details.where(course_id: "#{params[:course_id]}").each  do |course_detail| %>
         <td width="150"><h6> <%= "#{course_detail.assignment_name}" %></h6></td>
+        <td width="150"><h6> <%= "#{Student.find(course_detail.student_id).lastname.capitalize}"%>,
+          <%= "#{Student.find(course_detail.student_id).firstname.capitalize}"%> </h6></td>
+        <td width="150"><h6> <%= "#{course_detail.assignment_grade}" %></h6></td>
         <td width="150"><h6>
-          <%= link_to "View Assignment Grades", teacher_course_path("#{params[:course_id]}") %> |
-          <%= link_to "Edit", edit_teacher_course_path("#{params[:course_id]}") %> |
+          <%= link_to "Edit", edit_course_course_detail_path("#{params[:course_id]}",course_detail) %> |
           <%= link_to "Delete", teacher_course_path("#{params[:course_id]}") %>
         </h6></td>
        </tr>
