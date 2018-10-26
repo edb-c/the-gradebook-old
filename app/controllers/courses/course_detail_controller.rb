@@ -5,7 +5,7 @@ class Courses::CourseDetailController < ApplicationController
   end
 
   def new
-
+      @course_detail = CourseDetail.new
   end
 
   def show

@@ -1,10 +1,22 @@
 # The Gradebook application
-This application is created to
 
-# This application allows a user to
+This application is created to demonstrate ability to
+  - Build a complete Ruby on Rails application that allows teachers and/or students
+  to record and/or review course assignments and grades.
+  - Develop database design and normailization
+  - Manage related data through complex forms and RESTful routes.
+  - Implement standard user authentication as well as login from Facebook
+  - Develop views using Materialize CSS for responsive design
+
+# This application allows a Teacher to
   - Register for an account
   - Log into their account
   - Log out of their account
+
+# This application allows a Student to
+  - Register for an account
+  - Log into their account
+  - Log out of their account  
 
 # Installation Steps need to run this locally
 

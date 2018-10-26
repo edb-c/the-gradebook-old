@@ -1,5 +1,8 @@
 <div class="devise_container">
-<h4>Edit Assignment</h4>
-Edit Assignment
 
+<h4>Edit Your Course Detail - Assignment (<%= @course_detail.assignment_name %>):</h4>
+
+<%= render partial: 'form', locals: {course_detail: @course_detail, action: 'update'} %><br>
+
+<%= link_to "Delete Course Detail - Assignment", course_course_detail_path(current_user, @course_detail), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br><br>
 </div>

@@ -4,6 +4,40 @@ class Teachers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :authenticate_teacher!
 
+# testing omniauth
+#def create
+#  @teacher = Teacher.find_or_create_by(uid: auth['uid']) do |u|
+#    u.name = auth['info']['name']
+#    u.email = auth['info']['email']
+#  end
+
+#  session[:teacher_id] = @teacher.id
+
+#  render 'teachers/'
+#end
+
+private
+
+def auth
+  request.env['omniauth.auth']
+end
+#  def new
+#  end
+
+#  def create
+#    teacher = Teacher.from_omniauth(env["omniauth.auth"])
+
+#    if teacher.valid?
+#      session[:teacher_id] = teacher.id
+#      redirect_to request.env['omniauth.origin']
+#    end
+#  end
+
+#  def destroy
+#    reset_session
+#    redirect_to request.referer
+#  end
+
   def after_sign_in_path_for(teachers)
     teacher_courses_path  #brings to index
   end

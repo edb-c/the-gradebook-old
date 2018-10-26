@@ -5,8 +5,10 @@ class Students::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
   # devise :omniauthable, omniauth_providers: [:github]
 
   # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+#  def github
+#    @student = Student.from_omniauth(request.env["omniauth.auth"])
+#    sign_in_and_redirect @student
+#  end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
