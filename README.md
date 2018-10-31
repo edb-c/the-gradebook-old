@@ -12,8 +12,8 @@ This application is created to demonstrate ability to
   - Register for an account
   - Log into their account
   - Log out of their account
-  - Create, Read, Update, Delete - courses, students, assingments
-  
+  - Create, Read, Update, Delete - courses, students, assignments, grades
+
 # This application allows a Student to
   - Register for an account
   - Log into their account
