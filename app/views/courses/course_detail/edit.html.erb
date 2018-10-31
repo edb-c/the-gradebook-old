@@ -4,5 +4,5 @@
 
 <%= render partial: 'form', locals: {course_detail: @course_detail, action: 'update'} %><br>
 
-<%= link_to "Delete Course Detail - Assignment", course_course_detail_path(current_user, @course_detail), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br><br>
+<%= link_to "Delete Course Detail - Assignment", course_course_detail_path(current_teacher, @course_detail), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br><br>
 </div>

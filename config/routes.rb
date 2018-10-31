@@ -11,9 +11,7 @@ Rails.application.routes.draw do
       confirmations:      "students/confirmations"
 #      omniauth_callbacks: "students/omniauth_callbacks"
     }
-  devise_scope :teachers do
-    get "teachers/auth/github/callback" => "teachers/omniauth_callbacks#github"
-end
+
   devise_for :teachers, path: 'teachers',
 
   controllers:
@@ -23,12 +21,8 @@ end
     confirmations:      "teachers/confirmations",
     omniauth_callbacks: "teachers/omniauth_callbacks"
   }
-#https://github.com/login/oauth/authorize?client_id=4aee31ecd4ce5a703eea
-#https://github.com/login/oauth/authorize?client_id=4aee31ecd4ce5a703eea&scope=repo
-
-def devise_omniauth_callback(mapping, controllers) #:nodoc:
+def devise_omniauth_callback(mapping, controllers)
     path, @scope[:path] = @scope[:path], nil
-    # path_prefix = Devise.omniauth_path_prefix || "/#{mapping.path}/auth".squeeze("/") # Temporary fixed
     path_prefix, callback_prefix = Devise.omniauth_path_prefix, "/#{mapping.path}/auth".squeeze("/")
     set_omniauth_path_prefix!(path_prefix)
 

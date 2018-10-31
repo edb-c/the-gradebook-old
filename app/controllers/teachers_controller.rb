@@ -39,7 +39,9 @@ class TeachersController < ApplicationController
   end
 
   def destroy
-  end
+    reset_session
+    redirect_to :root
+end
 
   private
   def teacher_params

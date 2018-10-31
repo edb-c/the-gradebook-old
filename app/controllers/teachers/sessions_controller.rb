@@ -1,65 +1,47 @@
-# frozen_string_literal: true
-
 class Teachers::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
   before_action :authenticate_teacher!
+  skip_before_action :verify_signed_out_user ,:verify_authenticity_token, :only => :create
 
+  def create
+      puts "ec- Teachers::SessionsController - def create"
+      if auth
+        @teacher = Teacher.find_or_create_by(uid: auth['uid']) do |teacher|
+          teacher.name = auth['info']['name']
+          teacher.email = auth['info']['email']
+          teacher.password = SecureRandom.urlsafe_base64
+        end
+      else
+        @teacher = Teacher.find_or_create_by(email: params['email']) do |teacher|
+          teacher.name = params['name']
+          teacher.email =params['email']
+          teacher.password = params['password']
+        end
+      end
 
-# testing omniauth
-#def create
-#  @teacher = Teacher.find_or_create_by(uid: auth['uid']) do |u|
-#    u.name = auth['info']['name']
-#    u.email = auth['info']['email']
-#  end
+      if @teacher.save
+        session[:teacher_id] = @teacher.id
+        render 'welcome/home'
+      else
+        # if email or password incorrect, re-render login page:
+        flash.now.alert = "Incomplete form, try again."
+        render 'teachers/sessions#new'
+      end
+    end
 
-#  session[:teacher_id] = @teacher.id
+    def destroy
+      puts "ec- Teachers:SessionsController - def destroy"
+#     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+      sign_out @teacher
+      redirect_to root_url, notice: "Signed out!"
+    end
 
-#  render 'teachers/'
-#end
+    private
 
-private
-
-def auth
-  request.env['omniauth.auth']
+    def auth
+      puts "ec- Teachers:SessionsController - def auth"
+      request.env['omniauth.auth']
+    end
 end
-#  def new
-#  end
-
-#  def create
-#    teacher = Teacher.from_omniauth(env["omniauth.auth"])
-
-#    if teacher.valid?
-#      session[:teacher_id] = teacher.id
-#      redirect_to request.env['omniauth.origin']
-#    end
-#  end
-
-#  def destroy
-#    reset_session
-#    redirect_to request.referer
-#  end
-
-  def after_sign_in_path_for(teachers)
-    teacher_courses_path  #brings to index
-  end
-
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
-
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  #def destroy
-  #  signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(teachers))
-  #  set_flash_message! :notice, :signed_out if signed_out
-  #  yield if block_given?
-  #  respond_to_on_destroy
-  #end
 
   # protected
 
@@ -67,4 +49,3 @@ end
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end

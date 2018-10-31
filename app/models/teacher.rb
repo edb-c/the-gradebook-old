@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Teacher < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -17,22 +19,11 @@ class Teacher < ApplicationRecord
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |teacher|
+        teacher.provider = auth.provider
+        teacher.uid = auth.uid
         teacher.email = auth.info.email
-        teacher.password = Devise.friendly_token(0,20)
-
+        teacher.password = SecureRandom.urlsafe_base64
       end
   end
-
-#  def self.from_omniauth(auth)
-#      where(provider: auth.provider, uid: auth.uid).first || create_from_omniauth(auth)
-#    end
-
-    def self.create_from_omniauth(auth)
-      create! do |teacher|
-        teacher.provider = auth["provider"]
-        teacher.uid = auth["uid"]
-        teacher.firstname = auth["info"]["nickname"]
-      end
-    end
 
 end
