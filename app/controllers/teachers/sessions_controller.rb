@@ -4,6 +4,7 @@ class Teachers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :authenticate_teacher!
 
+
 # testing omniauth
 #def create
 #  @teacher = Teacher.find_or_create_by(uid: auth['uid']) do |u|

@@ -11,14 +11,9 @@ Rails.application.routes.draw do
       confirmations:      "students/confirmations"
 #      omniauth_callbacks: "students/omniauth_callbacks"
     }
-#  devise_scope :students do
-#    get "students/auth/github/callback" => "students/omniauth_callbacks#github"
-#  end
-
-  get 'teachers/auth/:provider/callback', to: 'teachers/sessions#create'
-  get 'teachers/auth/failure', to: redirect('/')
-  post 'teachers/signout', to: 'teachers/sessions#destroy', as: 'teachers/signout'
-
+  devise_scope :teachers do
+    get "teachers/auth/github/callback" => "teachers/omniauth_callbacks#github"
+end
   devise_for :teachers, path: 'teachers',
 
   controllers:
@@ -28,19 +23,32 @@ Rails.application.routes.draw do
     confirmations:      "teachers/confirmations",
     omniauth_callbacks: "teachers/omniauth_callbacks"
   }
-#  devise_scope :teachers do
-#    get "teachers/auth/github/callback" => sessions#create
-#   get "teachers/auth/github/callback" => "teachers/omniauth_callbacks#github"
-# testing omniauth
+#https://github.com/login/oauth/authorize?client_id=4aee31ecd4ce5a703eea
+#https://github.com/login/oauth/authorize?client_id=4aee31ecd4ce5a703eea&scope=repo
 
-#    get "/auth/:provider/callback", to: "teachers/sessions#create"
-#    get 'auth/failure', to: redirect('/')
-#    delete 'signout', to: 'teachers/sessions#destroy', as: 'signout'
+def devise_omniauth_callback(mapping, controllers) #:nodoc:
+    path, @scope[:path] = @scope[:path], nil
+    # path_prefix = Devise.omniauth_path_prefix || "/#{mapping.path}/auth".squeeze("/") # Temporary fixed
+    path_prefix, callback_prefix = Devise.omniauth_path_prefix, "/#{mapping.path}/auth".squeeze("/")
+    set_omniauth_path_prefix!(path_prefix)
 
-#    root to: 'teachers/sessions#new'
+    providers = Regexp.union(mapping.to.omniauth_providers.map(&:to_s))
 
+    match "#{path_prefix}/:provider",
+      :constraints => { :provider => providers },
+      :to => "#{controllers[:omniauth_callbacks]}#passthru",
+      :as => :omniauth_authorize,
+      :via => [:get, :post]
 
-#  end
+    match "#{path_prefix}/:action/callback",
+      :constraints => { :action => providers },
+      :to => controllers[:omniauth_callbacks],
+      :as => :omniauth_callback,
+      :via => [:get, :post]
+  ensure
+    @scope[:path] = path
+  end
+
   resources :students
   resources :teachers
   resources :teacher_courses
