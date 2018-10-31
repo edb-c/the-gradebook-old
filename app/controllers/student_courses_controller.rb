@@ -4,9 +4,4 @@ class StudentCoursesController < ApplicationController
     student_courses_path
   end
 
-
-
-
-
-
 end

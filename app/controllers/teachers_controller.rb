@@ -4,6 +4,7 @@ class TeachersController < ApplicationController
 
 #teachers GET /teachers(.:format) teachers#index
   def index
+
     @teachers = Teacher.all
     @courses  = Course.all
   end
@@ -39,11 +40,15 @@ class TeachersController < ApplicationController
   end
 
   def destroy
+
+    puts "ec- TeachersController - def destroy"
+
     reset_session
     redirect_to :root
 end
 
-  private
+private
+
   def teacher_params
     params.require(:teacher).permit(:password)
   end
