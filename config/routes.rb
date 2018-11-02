@@ -55,5 +55,5 @@ def devise_omniauth_callback(mapping, controllers)
 
 #Future Development Tasks for The-Gradebook Admin
 #  resources :teachers
-
+#  resources :students #modify student roster
 end

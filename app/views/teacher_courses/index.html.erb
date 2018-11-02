@@ -29,13 +29,14 @@
         </table>
 
      <% else %>
-     <h5>You currently do not have any Courses.</h5>
+     <h5>You currently do not have any Courses. Please contact Admistrator.</h5>
     <% end %>
     <h5 class="red-text">Important Information - [Scope] At Risk Students: </h5>
     <h6>Number of Students with Assignament Grades less than 75:   <%= "#{current_teacher.course_details.at_risk_students.count}" %> </h6>
 <% current_teacher.course_details.at_risk_students.each do |risky_student| %>
-Student Name:  <%= "#{Student.find(risky_student.student_id).lastname.capitalize}"%>, <%= "#{Student.find(risky_student.student_id).firstname.capitalize}"%>
-   |   Student Grade: <%= "#{risky_student.assignment_grade}"%>
+* Student:  <%= "#{Student.find(risky_student.student_id).lastname.capitalize}"%>, <%= "#{Student.find(risky_student.student_id).firstname.capitalize}"%>
+      received a  <%= "#{risky_student.assignment_grade}"%>
+      on <%= "#{risky_student.assignment_name}."%>
 <br>
 <% end %>
 </div>

@@ -1,3 +1,4 @@
+=begin
 Teacher.create!(
 prefix:             'teacher_prefix1',
 firstname:          'teacher_firstname1',
@@ -212,4 +213,33 @@ assignment_grade:   97,
 course_id:           4, #Social Studies
 teacher_id:          1, #Social Studies Teacher
 student_id:          1
+)
+=end
+CourseDetail.create(
+assignment_name:    'Math Assignment2',
+assignment_grade:   65,
+course_id:           1, #Math
+teacher_id:          1, #Math Teacher
+student_id:          1
+)
+CourseDetail.create(
+assignment_name:    'Math Assignment2',
+assignment_grade:   70,
+course_id:           2, #Science
+teacher_id:          2, #Science Teacher
+student_id:          2
+)
+CourseDetail.create(
+assignment_name:    'Technology Assignment2',
+assignment_grade:   68,
+course_id:           3, #Technology
+teacher_id:          3, #Technology Teacher
+student_id:          2
+)
+CourseDetail.create(
+assignment_name:    'Social Studies Assignment2',
+assignment_grade:   50,
+course_id:           4, #Social Studies
+teacher_id:          1, #Social Studies Teacher
+student_id:          2
 )
