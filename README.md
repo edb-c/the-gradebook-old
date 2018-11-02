@@ -7,7 +7,7 @@ This application is created to demonstrate ability to
   - Manage related data through complex forms and RESTful routes.
   - Implement standard user authentication as well as login from Github
   - Develop views using Materialize CSS for responsive design
-  
+
 ![localhost](https://github.com/edb-c/the-gradebook/blob/master/homepage.png)
 
 # This application allows a Teacher to
@@ -38,7 +38,7 @@ Visit the IP server address listed.
 
 # Possible Future Enhancements
 
-  - streamline user roles, teacher, students, add admin.
+  - Streamline user roles, teacher, students, add admin.
   - Admin role will add courses to teacher rosters
 
 # License
