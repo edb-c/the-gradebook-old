@@ -43,14 +43,17 @@ def devise_omniauth_callback(mapping, controllers)
     @scope[:path] = path
   end
 
-  resources :students
-  resources :teachers
   resources :teacher_courses
   resources :student_courses
 
 #Nested resource/routes - captures parent/child relationship
-  resources :courses do
+  resources :courses, only: :index do
   resources :course_details, controller: 'courses/course_detail'
  end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :students, only: [:index, :show]
+
+#Future Development Tasks for The-Gradebook Admin
+#  resources :teachers
+
 end

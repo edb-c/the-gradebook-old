@@ -10,14 +10,13 @@ This application is created to demonstrate ability to
 
 # This application allows a Teacher to
   - Register for an account
-  - Log into their account
-  - Log out of their account
-  - Create, Read, Update, Delete - courses, students, assignments, grades
+  - Log in/out their account
+  - Log in/out their account using Github
+  - Create, Read, Update, Delete - assignments, grades
 
 # This application allows a Student to
   - Register for an account
-  - Log into their account
-  - Log out of their account
+  - Log in/out their account
   - View courses, assignments grades
 
 # Installation Steps need to run this locally

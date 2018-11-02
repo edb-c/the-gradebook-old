@@ -8,6 +8,10 @@ class Courses::CourseDetailController < ApplicationController
       @course_detail = CourseDetail.new
   end
 
+  def at_risk
+    CourseDetail.at_risk_students
+  end
+  
   def show
 
   end
