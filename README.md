@@ -7,7 +7,7 @@ This application is created to demonstrate ability to
   - Manage related data through complex forms and RESTful routes.
   - Implement standard user authentication as well as login from Github
   - Develop views using Materialize CSS for responsive design
-
+![localhost](https://github.com/edb-c/rails-amusement-park-v-000/blob/master/Localhost_3000.png)
 # This application allows a Teacher to
   - Register for an account
   - Log in/out their account
@@ -38,6 +38,6 @@ Visit the IP server address listed.
 
   - streamline user roles, teacher, students, add admin.
   - Admin role will add courses to teacher rosters
-  
+
 # License
 [MIT License]
