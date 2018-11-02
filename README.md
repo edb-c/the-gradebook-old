@@ -3,7 +3,7 @@
 This application is created to demonstrate ability to
   - Build a complete Ruby on Rails application that allows teachers and/or students
   to record and/or review course assignments and grades.
-  - Develop database design and normailization
+  - Develop database design and normalization
   - Manage related data through complex forms and RESTful routes.
   - Implement standard user authentication as well as login from Github
   - Develop views using Materialize CSS for responsive design
@@ -34,5 +34,10 @@ This application is created to demonstrate ability to
 
 Visit the IP server address listed.
 
+# Possible Future Enhancements
+
+  - streamline user roles, teacher, students, add admin.
+  - Admin role will add courses to teacher rosters
+  
 # License
 [MIT License]
