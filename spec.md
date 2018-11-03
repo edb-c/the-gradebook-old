@@ -23,3 +23,17 @@ Confirm:
 - [x] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
+
+# Sample Data to use for Testing
+
+TEACHERS			
+ID  Name	     Email	            Password
+1	  teacher1	 teacher1@email.com	password1
+2	  teacher2	 teacher2@email.com	password2
+3	  teacher3	 teacher3@email.com	password3
+
+STUDENTS			
+ID	Name	    Email	              Password
+1	  student1	student1@email.com	spassword1
+2	  student2	student2@email.com	spassword2
+3	  student3	student3@email.com	spassword3
