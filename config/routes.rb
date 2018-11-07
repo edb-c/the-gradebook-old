@@ -53,6 +53,8 @@ def devise_omniauth_callback(mapping, controllers)
 
   resources :students, only: [:index, :show]
 
+  patch '/courses/:course_id/course_details/:id', to: 'courses/course_detail#update'
+
 #Future Development Tasks for The-Gradebook Admin
 #  resources :teachers
 #  resources :students #modify student roster
