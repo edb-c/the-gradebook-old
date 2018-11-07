@@ -1,5 +1,6 @@
 class Courses::CourseDetailController < ApplicationController
 
+
   def index
 
   end
@@ -22,12 +23,19 @@ class Courses::CourseDetailController < ApplicationController
 
   def update
     @course_detail = CourseDetail.find(params[:id])
-    if @course_detail.update(course_detail_params)
-      flash[:notice] = "Record successfully updated."
-      redirect_to teacher_courses_path  #brings to index
-    else
-      redirect_to edit_course_course_detail_path("#{params[:course_id]}",course_detail)
-    end
+     if @course_detail.update(course_detail_params)
+       flash[:notice] = "Record successfully updated."
+      else
+        flash[:notice] = "Record not updated. Please try again."
+      end
+    redirect_to course_course_details_path("#{params[:course_id]}")
+  end
+
+  def destroy
+    @course_detail = CourseDetail.find(params[:id])
+    @course_detail.delete
+    flash[:notice] = "Record successfully deleted."
+    redirect_to course_course_details_path("#{params[:course_id]}")
   end
 
 ## PRIVATE METHODS
