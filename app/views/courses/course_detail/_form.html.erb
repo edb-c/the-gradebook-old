@@ -1,20 +1,40 @@
 <%= form_for course_detail , url: {action: action} do |f| %>
 
+  <%= f.hidden_field :course_id,  value: @course_detail.course_id %>
+  <%= f.hidden_field :teacher_id, value: @course_detail.teacher_id %>
+
+  <%if action == "create" %>
+
+    <div class="field">
+      <%= f.label :student_id %><br>
+      <%= f.text_field :student_id %>
+    </div>
+
+  <% end %>
+
+  <%if action == "udpate" %>
+    <%= f.hidden_field :student_id, value: @course_detail.student_id %>
+  <% end %>
+
   <div class="field">
     <%= f.label :assignment_name %><br>
     <%= f.text_field :assignment_name, :value => "#{@course_detail.assignment_name}" %>
   </div>
+
   <div class="field">
     <%= f.label :assignment_grade %><br>
     <%= f.text_field :assignment_grade, :value => "#{@course_detail.assignment_grade}" %>
   </div>
-  <%= f.hidden_field :course_id,  value: @course_detail.course_id %>
-  <%= f.hidden_field :teacher_id, value: @course_detail.teacher_id %>
-  <%= f.hidden_field :student_id, value: @course_detail.student_id %>
 
 
   <div class="actions">
-    <%= f.submit "Edit this Course Detail"%>
+    <%if action == "udpate" %>
+        <%= f.submit "Edit this Course Detail" %>
+    <% elsif action == "create" %>
+        <%= f.submit "Create this Course Detail" %>
+    <% else %>
+        <%= f.submit %>
+    <% end %>
   </div>
 
 <% end %>

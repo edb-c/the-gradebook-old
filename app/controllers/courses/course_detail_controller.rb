@@ -17,6 +17,18 @@ class Courses::CourseDetailController < ApplicationController
     CourseDetail.at_risk_students
   end
 
+  def create
+    @course_detail = CourseDetail.new(course_detail_params)
+
+    if @@course_detail.save
+      flash[:notice] = "Record successfully added."
+          redirect_to course_course_details_path("#{params[:course_id]}")
+      else
+          flash[:error] = "Record not added. Please try again."
+          redirect_to new_course_course_detail_path("#{params[:course_id]}")
+      end
+  end
+
   def show
 
   end

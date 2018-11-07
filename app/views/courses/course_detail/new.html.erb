@@ -1,4 +1,7 @@
 <div class="devise_container">
-<h4>Add New Assignment</h4>
+
+  <h4><%= "Add Course Detail - New #{Course.find(params[:course_id]).course_name} Assignment" %></h4>
+
 <%= render partial: 'form', locals: {course_detail: @course_detail, action: 'create'} %>
+
 </div>
