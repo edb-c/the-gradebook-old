@@ -7,12 +7,18 @@
 <!-- Fixed Invalid Token Error -->
   <%= csrf_meta_tags %>
   <title>The Gradebook</title>
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%= javascript_include_tag :application %>
+
+
 <!-- CSS  -->
-  <link href="../../assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../../assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <%= javascript_include_tag :application %>
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 
 </head>
 

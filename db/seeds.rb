@@ -50,7 +50,7 @@ Course.create!(
 course_name:        'Science',  #course_id = 2
 )
 Course.create!(
-course_name:        'Tecnology',  #course_id = 3
+course_name:        'Technology',  #course_id = 3
 )
 
 Course.create!(

@@ -2,6 +2,8 @@
 
   <h4><%= "Add Course Detail - New #{Course.find(params[:course_id]).course_name} Assignment" %></h4>
 
-<%= render partial: 'form', locals: {course_detail: @course_detail, action: 'create'} %>
+  <h5>Course ID: <%= "#{params[:course_id]}" %></h5>
+
+  <%= render partial: 'form', locals: {course_detail: @course_detail, action: "create"} %>
 
 </div>

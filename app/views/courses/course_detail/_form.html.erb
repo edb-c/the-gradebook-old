@@ -1,18 +1,13 @@
 <%= form_for course_detail , url: {action: action} do |f| %>
 
-  <%= f.hidden_field :course_id,  value: @course_detail.course_id %>
-  <%= f.hidden_field :teacher_id, value: @course_detail.teacher_id %>
-
-  <%if action == "create" %>
-
-    <div class="field">
-      <%= f.label :student_id %><br>
-      <%= f.text_field :student_id %>
+  <% if action == "create" %>
+  <div class="field">
+        <%= f.label :student_id %><br>
+        <%= f.collection_select(:student_id, current_teacher.course_details.select(:student_id).distinct, :student_id, :student_id, {:prompt => 'Please select Student ID'},class: "browser-default") %>
     </div>
-
   <% end %>
 
-  <%if action == "udpate" %>
+  <% if action == "udpate" %>
     <%= f.hidden_field :student_id, value: @course_detail.student_id %>
   <% end %>
 
@@ -26,6 +21,8 @@
     <%= f.text_field :assignment_grade, :value => "#{@course_detail.assignment_grade}" %>
   </div>
 
+  <%= f.hidden_field :course_id,  value: "#{params[:course_id]}" %>
+  <%= f.hidden_field :teacher_id, value: "#{current_teacher.id}" %>
 
   <div class="actions">
     <%if action == "udpate" %>

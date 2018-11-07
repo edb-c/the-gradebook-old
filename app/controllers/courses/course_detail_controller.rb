@@ -20,7 +20,7 @@ class Courses::CourseDetailController < ApplicationController
   def create
     @course_detail = CourseDetail.new(course_detail_params)
 
-    if @@course_detail.save
+    if @course_detail.save
       flash[:notice] = "Record successfully added."
           redirect_to course_course_details_path("#{params[:course_id]}")
       else
@@ -55,7 +55,7 @@ class Courses::CourseDetailController < ApplicationController
   private
 
   def course_detail_params
-    params.require(:course_detail).permit(:assignment_name, :assignment_grade)
+    params.require(:course_detail).permit(:student_id, :teacher_id, :course_id, :assignment_name, :assignment_grade)
   end
 
 end

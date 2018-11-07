@@ -27,25 +27,27 @@
         </table>
 
      <% else %>
-     <h5>You currently do not have any Courses. Please contact Admistrator.</h5>
+     <h5>You currently do not have any Courses. Please contact Administrator.</h5>
     <% end %>
 <br>
 <br>
-<h5 class="red-text">Important Information - [Scope] At Risk Students: </h5>
-<h6>Number of Students with Assignment Grades less than 75:   <%= "#{current_teacher.course_details.at_risk_students.count}" %> </h6>
-<table>
-  <tbody>
-    <tr>
-      <td width="200"><h5>Student Name</h5></td>
-      <td width="200"><h5>Assignment Name</h5></td>
-      <td width="200"><h5>Assignment Grade</h5></td>
-    </tr>
-    <% current_teacher.course_details.at_risk_students.each do |risky_student| %>
-      <tr>
-      <td width="200"><h6><%= "#{Student.find(risky_student.student_id).lastname.capitalize}" %>, <%= "#{Student.find(risky_student.student_id).firstname.capitalize}" %></h6></td>
-      <td width="200"><h6><%= "#{risky_student.assignment_grade}"%></h6></td>
-      <td width="200"><h6><%= "#{risky_student.assignment_name}"%></h6></td>
-      <% end %>
-    </tbody>
-    </table>
+<% if current_teacher.course_details.at_risk_students.count > 0 %>
+    <h5 class="red-text">Important Information - [Scope] At Risk Students: </h5>
+    <h6>Number of Students with Assignment Grades less than 75:   <%= "#{current_teacher.course_details.at_risk_students.count}" %> </h6>
+    <table>
+      <tbody>
+        <tr>
+          <td width="200"><h5>Student Name</h5></td>
+          <td width="200"><h5>Assignment Name</h5></td>
+          <td width="200"><h5>Assignment Grade</h5></td>
+        </tr>
+        <% current_teacher.course_details.at_risk_students.each do |risky_student| %>
+          <tr>
+          <td width="200"><h6><%= "#{Student.find(risky_student.student_id).lastname.capitalize}" %>, <%= "#{Student.find(risky_student.student_id).firstname.capitalize}" %></h6></td>
+          <td width="200"><h6><%= "#{risky_student.assignment_grade}"%></h6></td>
+          <td width="200"><h6><%= "#{risky_student.assignment_name}"%></h6></td>
+          <% end %>
+        </tbody>
+        </table>
+<% end %>
 </div>
