@@ -57,7 +57,7 @@
    <h5>Student currently does not have any Course Detais.</h5>
   <% end %>
 
-<h5> <%= link_to "Add New Course Assignment", new_course_course_detail_path("#{params[:course_id]}") %> </h5>
+<h5> <%= link_to "Add New #{Course.find(params[:course_id]).course_name} Assignment", new_course_course_detail_path("#{params[:course_id]}") %> </h5>
 
 <% end %>
 <h5><a href="/teacher_courses"><button class="btn btn-primary">GO BACK</button></a></h5>

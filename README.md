@@ -40,8 +40,8 @@ Visit the IP server address listed.
 
 # Possible Future Enhancements
 
-  - Streamline user roles, teacher, students, add admin.
-  - Admin role will add courses to teacher rosters
+  - Streamline user roles, teacher, students, add admin role.
+  - Admin role will manage course lists, teacher courses, student rosters.
 
 # License
 [MIT License]

@@ -1,4 +1,4 @@
-<%= form_for [@course, @assignment] do |f| %>
+<%= form_for course_course_detail_path do |f| %>
 
   <div class="field">
     <%= f.label :assgnment_name %><br>
@@ -8,6 +8,7 @@
     <%= f.label :assgnment_grade %><br>
     <%= f.text_field :assgnment_grade %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
