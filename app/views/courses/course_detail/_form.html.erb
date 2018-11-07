@@ -1,15 +1,17 @@
 <%= form_for course_course_detail_path do |f| %>
 
   <div class="field">
-    <%= f.label :assgnment_name %><br>
-    <%= f.text_field :assgnment_name %>
+    <%= f.label :assignment_name %><br>
+    <%= f.text_field :assignment_name, :value => "#{@course_detail.assignment_name}" %>
   </div>
   <div class="field">
-    <%= f.label :assgnment_grade %><br>
-    <%= f.text_field :assgnment_grade %>
+    <%= f.label :assignment_grade %><br>
+    <%= f.text_field :assignment_grade, :value => "#{@course_detail.assignment_grade}" %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
+<h5><a href="/courses/<%= "#{current_teacher.id}" %>/course_details"><button class="btn btn-primary">GO BACK</button></a></h5>

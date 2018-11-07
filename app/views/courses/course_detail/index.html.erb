@@ -47,7 +47,8 @@
         <td width="150"><h6> <%= "#{course_detail.assignment_grade}" %></h6></td>
         <td width="150"><h6>
           <%= link_to "Edit", edit_course_course_detail_path("#{params[:course_id]}",course_detail) %> |
-          <%= link_to "Delete", teacher_course_path("#{params[:course_id]}") %>
+          <%= link_to "Delete", course_course_detail_path(current_teacher, course_detail), method: :delete, data: {confirm: "Are you sure you want to delete?"} %><br><br>
+
         </h6></td>
        </tr>
          <% end %>
