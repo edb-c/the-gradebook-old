@@ -6,9 +6,9 @@ Specs:
 - [x] Include at least one belongs_to relationship
 - [x] Include at least one has_many through relationship
 - [x] The "through" part of the has_many through includes at least one user submittable
-      attribute (attribute_name e.g. ingredients.quantity)
+      attribute (attribute_name e.g. courses.course_detail.assignment_grade)
 - [x] Include reasonable validations for simple model objects (list of model objects with
-      validations e.g. User, Recipe, Ingredient, Item)
+      validations e.g. Teacher, Student, CourseDetail )
 - [x] Include a class level ActiveRecord scope method (CourseDetail model)
 - [x] Include signup - using Devise
 - [x] Include login  - using Devise
