@@ -1,6 +1,6 @@
 <div class="devise_container">
 
-<h4><%= "Edit Course Detail - #{get_course_name} Assignment" %></h4>
+<h4><%= "Edit Course Detail - #{get_course_name(@course_detail.course_id)} Assignment" %></h4>
 <h5>Student Name - <%= "#{get_student_name}" %></h5>
 
 <%= render partial: 'form', locals: {course_detail: @course_detail, action: 'update'} %><br>

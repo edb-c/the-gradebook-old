@@ -4,7 +4,7 @@
   <% if current_student %>
     <h4>Welcome <%= current_student.firstname.capitalize if current_student.firstname %>!</h4>
     <% if current_student.course_details.present? %>
-      <h5 class="green-text">Here are the course details and grades for your <%= "#{get_course_name}" %> course:</h5>
+      <h5 class="green-text">Here are the course details and grades for your <%= "#{get_course_name(params[:course_id])}" %> course:</h5>
       <table>
         <tbody>
           <tr>
@@ -30,7 +30,7 @@
   <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
   <% if current_teacher.course_details.present? %>
-    <h5 class="green-text">Viewing the assignment details for your <%= "#{get_course_name}"%> course:</h5>
+    <h5 class="green-text">Viewing the assignment details for your <%= "#{get_course_name(params[:course_id])}"%> course:</h5>
     <table>
       <tbody>
         <tr>
@@ -57,7 +57,7 @@
    <h5>Student currently does not have any Course Detais.</h5>
   <% end %>
 
-<h5> <%= link_to "Add New #{get_course_name} Assignment", new_course_course_detail_path("#{params[:course_id]}") %> </h5>
+<h5> <%= link_to "Add New #{get_course_name(params[:course_id])} Assignment", new_course_course_detail_path("#{params[:course_id]}") %> </h5>
 <h5><a href="/teacher_courses"><button class="btn btn-primary">GO BACK</button></a></h5>
 <% end %>
 

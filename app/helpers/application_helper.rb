@@ -20,7 +20,8 @@ module ApplicationHelper
      student_name
   end
 
-  def get_course_name
-    Course.find(params[:course_id]).course_name
+  def get_course_name(course_id)
+    Course.find(course_id).course_name
   end
+
 end
