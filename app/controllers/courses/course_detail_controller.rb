@@ -1,7 +1,8 @@
 class Courses::CourseDetailController < ApplicationController
 
   def index
-
+    puts "ec- In CourseDetailController -index"
+    @course_detail = CourseDetail.all
   end
 
   def edit
