@@ -1,6 +1,7 @@
 <div class="devise_container">
 <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 <%= hello %>
+
     <% if current_teacher.teacher_courses.present? %>
 
       <h5 class="green-text">Viewing student roster informaton for your <%="#{Course.find(params[:id]).course_name}"%> class:</h5>
@@ -15,10 +16,10 @@
           <% current_teacher.course_details.select(:student_id).distinct.where(course_id: "#{params[:id]}").each  do |course_detail| %>
           <tr>
           <td width="250"><h6> <%= "#{course_detail.student_id}" %></h6></td>
-          <td width="250"><h6> <%= "#{Student.find(course_detail.student_id).lastname.capitalize}"%>,
-            <%= "#{Student.find(course_detail.student_id).firstname.capitalize}"%> </h6></td>
-          <td width="250"><h6><%= "#{CourseDetail.where(course_id: params[:id], student_id: course_detail.student_id).average(:assignment_grade)}" %></h6></td>
+          <td width="250"><h6> <%= "#{get_student_name2(course_detail.student_id)}" %> </h6></td>
+          <td width="250"><h6> <%= "#{getAverage(params[:id],course_detail.student_id)}" %></h6></td>
           </tr>
+
           <% end %>
         </tbody>
         </table>
