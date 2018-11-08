@@ -2,4 +2,5 @@
 
 class Students::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
+
 end

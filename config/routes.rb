@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     confirmations:      "teachers/confirmations",
     omniauth_callbacks: "teachers/omniauth_callbacks"
   }
-def devise_omniauth_callback(mapping, controllers)
+
+# Work-around for #passthru method not working in original form
+  def devise_omniauth_callback(mapping, controllers)
     path, @scope[:path] = @scope[:path], nil
     path_prefix, callback_prefix = Devise.omniauth_path_prefix, "/#{mapping.path}/auth".squeeze("/")
     set_omniauth_path_prefix!(path_prefix)
