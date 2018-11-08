@@ -1,7 +1,6 @@
 <div class="devise_container">
 <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 <%= hello %>
-
     <% if current_teacher.teacher_courses.present? %>
 
       <h5 class="green-text">Viewing student roster informaton for your <%= "#{get_course_name(params[:id])}" %> class:</h5>

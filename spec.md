@@ -9,7 +9,8 @@ Specs:
       attribute (attribute_name e.g. courses.course_detail.assignment_grade)
 - [x] Include reasonable validations for simple model objects (list of model objects with
       validations e.g. Teacher, Student, CourseDetail )
-- [x] Include a class level ActiveRecord scope method (CourseDetail model)
+- [x] Include a class level ActiveRecord scope method (CourseDetail model - scope       
+      :at_risk_students)
 - [x] Include signup - using Devise
 - [x] Include login  - using Devise
 - [x] Include logout - using Devise
@@ -22,7 +23,7 @@ Confirm:
 - [x] The application is pretty DRY
 - [x] Limited logic in controllers
 - [x] Views used helper methods
-- [x] Views used partials 
+- [x] Views used partials
 
 # Sample Data to use for Testing
 
