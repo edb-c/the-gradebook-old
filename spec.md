@@ -17,7 +17,7 @@ Specs:
 - [x] Include third party signup/login through Github -using Devise/OmniAuth
 - [x] Include nested resource show or index (URL - courses/course_detail#index)
 - [x] Include nested resource "new" form (URL - courses/course_detail#new)
-- [x] Include form display of validation errors
+- [x] Include form display of validation errors (view course_detail/ form.html)
 
 Confirm:
 - [x] The application is pretty DRY
