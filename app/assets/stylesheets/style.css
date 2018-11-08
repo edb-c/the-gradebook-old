@@ -59,3 +59,10 @@ footer.page-footer {
 .devise_container {
   padding: 25px 25px 25px 25px;
 }
+
+.msg-error {
+  // rouge
+  border-color: #d32f2f;
+  background-color: #ef5350;
+  color: white;
+}

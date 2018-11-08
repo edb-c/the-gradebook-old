@@ -1,3 +1,13 @@
+<% if @course_detail.errors.any? %>
+  <div class="msg msg-error z-depth-3 scale-transition">
+    <ul>
+    <% @course_detail.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for course_detail , url: {action: action} do |f| %>
 
   <% if action == "create" %>

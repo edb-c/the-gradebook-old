@@ -19,14 +19,20 @@ class Courses::CourseDetailController < ApplicationController
   end
 
   def create
+    puts "ec- In CourseDetailController -create"
     @course_detail = CourseDetail.new(course_detail_params)
 
     if @course_detail.save
-      flash[:notice] = "Record successfully added."
-          redirect_to course_course_details_path("#{params[:course_id]}")
-      else
-          flash[:error] = "Record not added. Please try again."
-          redirect_to new_course_course_detail_path("#{params[:course_id]}")
+       flash[:notice] = "Record successfully added."
+       redirect_to course_course_details_path("#{params[:course_id]}")
+    else
+       flash[:error] = "Record not added. Please try again."
+       puts "Errors are #{@course_detail.errors.any?}"
+       @course_detail.errors.full_messages.each do |msg|
+         puts msg
+       end
+       render :new
+
       end
   end
 
@@ -36,12 +42,12 @@ class Courses::CourseDetailController < ApplicationController
 
   def update
     @course_detail = CourseDetail.find(params[:id])
-     if @course_detail.update(course_detail_params)
-       flash[:notice] = "Record successfully updated."
-      else
-        flash[:notice] = "Record not updated. Please try again."
-      end
-    redirect_to course_course_details_path("#{params[:course_id]}")
+    if @course_detail.update(course_detail_params)
+      flash[:notice] = "Record successfully updated."
+    else
+      flash[:notice] = "Record not updated. Please try again."
+    end
+    render :edit
   end
 
   def destroy
