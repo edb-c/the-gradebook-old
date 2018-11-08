@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class Students::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  def after_sign_in_path_for(studentss)  #instead of #create
+  def after_sign_in_path_for(students)  #instead of #create
     puts "ec- Students::RegistrationsController - after_sign_in_path_for(students)"
     student_courses_path  #brings to index
   end
+
 
   # GET /resource/sign_up
   # def new
@@ -43,12 +44,12 @@ class Students::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -64,4 +65,4 @@ class Students::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-end
+end #end Class

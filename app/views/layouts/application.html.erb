@@ -6,19 +6,14 @@
 
 <!-- Fixed Invalid Token Error -->
   <%= csrf_meta_tags %>
+
   <title>The Gradebook</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 
 <!-- CSS  -->
   <link href="/assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <%= javascript_include_tag :application %>
-<script>
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-</script>
 
 </head>
 
@@ -61,9 +56,6 @@
 
   <%= yield %>
 
-
-
-
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
@@ -92,7 +84,6 @@
       Made with <span style="color: #e25555;">&hearts;</span> by <a class="white-text" href="http://www.ethelcofresi.com">E.Cofresi 2018</a>
       </div>
   </footer>
-
 
 
   <!--  Scripts  -->
