@@ -12,7 +12,6 @@ class TeacherCoursesController < ApplicationController
   end
 
   def update
-
   end
 
 
