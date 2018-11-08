@@ -21,8 +21,8 @@ Specs:
 Confirm:
 - [x] The application is pretty DRY
 - [x] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [x] Views use partials if appropriate
+- [x] Views used helper methods
+- [x] Views used partials 
 
 # Sample Data to use for Testing
 

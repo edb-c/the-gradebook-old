@@ -1,11 +1,11 @@
 class Courses::CourseDetailController < ApplicationController
 
-
   def index
 
   end
 
   def edit
+    puts "ec- In CourseDetailController -edit"
   		@course_detail = CourseDetail.find(params[:id])
   end
 

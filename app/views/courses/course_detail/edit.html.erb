@@ -1,9 +1,8 @@
 <div class="devise_container">
 
-<h4><%= "Edit Course Detail - #{Course.find(params[:course_id]).course_name} Assignment" %></h4>
-<h5>Student Name - <%= "#{Student.find(@course_detail.student_id).lastname.capitalize}"%>,
-  <%= "#{Student.find(@course_detail.student_id).firstname.capitalize}"%> </h5>
-  
+<h4><%= "Edit Course Detail - #{get_course_name} Assignment" %></h4>
+<h5>Student Name - <%= "#{get_student_name}" %></h5>
+
 <%= render partial: 'form', locals: {course_detail: @course_detail, action: 'update'} %><br>
 
 </div>
