@@ -44,7 +44,7 @@
         </tr>
         <% current_teacher.course_details.at_risk_students.each do |risky_student| %>
           <tr>
-          <td width="200"><h6><%= "#{get_student_name2(risky_student.student_id)}" %></h6></td>
+          <td width="200"><h6><%= "#{get_student_name(risky_student.student_id)}" %></h6></td>
           <td width="200"><h6><%= "#{risky_student.assignment_grade}"%></h6></td>
           <td width="200"><h6><%= "#{risky_student.assignment_name}"%></h6></td>
           <% end %>

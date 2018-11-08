@@ -42,7 +42,7 @@
         <tr>
         <% current_teacher.course_details.where(course_id: "#{params[:course_id]}").each  do |course_detail| %>
         <td width="150"><h6> <%= "#{course_detail.assignment_name}" %></h6></td>
-        <td width="150"><h6> <%= "#{get_student_name2(course_detail.student_id)}" %> </h6></td>
+        <td width="150"><h6> <%= "#{get_student_name(course_detail.student_id)}" %> </h6></td>
         <td width="150"><h6> <%= "#{course_detail.assignment_grade}" %></h6></td>
         <td width="150"><h6>
           <%= link_to "Edit", edit_course_course_detail_path("#{params[:course_id]}",course_detail) %> |
