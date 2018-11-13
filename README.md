@@ -3,11 +3,11 @@
 # The Gradebook application
 
 This application is created to demonstrate ability to
-  - Build a complete Ruby on Rails application that allows teachers and/or students
-  to record and/or review course assignments and grades.
-  - Develop database design and normalization
+  - Build a complete Ruby on Rails application 
+  - Develop database design, associations, and validations using ActiveRecord
   - Manage related data through complex forms and RESTful routes.
-  - Implement standard user authentication as well as login from Github
+  - Implement standard user authentication as well as login from Github, using
+    Devise and Omniauth
   - Develop views using Materialize CSS for responsive design
 
 ![localhost](https://github.com/edb-c/the-gradebook/blob/master/homepage.png)
