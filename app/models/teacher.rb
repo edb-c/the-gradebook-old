@@ -14,7 +14,10 @@ class Teacher < ApplicationRecord
     has_many :courses,     through: :teacher_courses
 
     has_many :course_details
-    has_many :students, through: :course_details
+#    has_many :students, through: :course_details
+
+    has_many :students, 
+    {:through=>:course_details, :autosave=>true, :source=> "student"}
 
     accepts_nested_attributes_for :students, :courses, :course_details
 
