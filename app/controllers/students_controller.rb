@@ -8,4 +8,6 @@ class StudentsController < ApplicationController
     @student = Student.find_by(id: params[:id])
   end
 
+
+
 end

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+
+
 # Devise Routes -eg. http://localhost:3000/x/sign_in
   devise_for :students, path: 'students',
     controllers:
@@ -56,6 +58,8 @@ Rails.application.routes.draw do
   resources :students, only: [:index, :show]
 
   patch '/courses/:course_id/course_details/:id', to: 'courses/course_detail#update'
+
+  
 
 #Future Development Tasks for The-Gradebook Admin
 #  resources :teachers
